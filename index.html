@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>tic-tack-toe game</title>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="dark">
+    <div class="screen">
+        <h1>Tic-Tac-Toe</h1>
+        <p>Choose Mode</p>
+        <button onclick="selectMode('pvp')">👥 Player vs Player</button>
+        <button onclick="showDifficulty()">🤖 Player vs AI</button>
+
+        <div id="difficulty-options" class="hidden">
+            <p>Select AI Difficulty:</p>
+            <button onclick="selectAI('easy')">Easy</button>
+            <button onclick="selectAI('medium')">Medium</button>
+            <button onclick="selectAI('hard')">Hard</button>
+        </div>
+    </div>
+
+    <script>
+        function showDifficulty() {
+            document.getElementById("difficulty-options").classList.remove("hidden");
+        }
+
+        function selectMode(mode) {
+            localStorage.setItem("mode", mode);
+            window.location.href = "game.html";
+        }
+
+        function selectAI(level) {
+            localStorage.setItem("mode", "ai");
+            localStorage.setItem("aiLevel", level);
+            window.location.href = "game.html";
+        }
+    </script>
+</body>
+
+</html>
